@@ -1,8 +1,10 @@
 ﻿@page "/Login"
 @rendermode InteractiveServer
+@layout MainLayout
+@attribute [AllowAnonymous]
 <h3>Login</h3>
 
-<EditForm Model="@LoginModel" FormName="Login" OnSubmit="LoginClick">
+<EditForm Model="@LoginModel" FormName="Login" >
 
     <div class="row">
         <div class="mb-3 form-group">
@@ -13,10 +15,6 @@
             <label for="Password" class="form-label">Password</label>
             <InputText type="password" class="form-control" @bind-Value="LoginModel.Password" />
         </div>
-        @if (LoginModel.UserName=="admin")
-        {
-            <label for="Password" class="form-label">User Name is Admin</label>
-        }
         <div>
             <button type="submit" @onclick="LoginClick" class="btn-info"> Login </button>
         </div>

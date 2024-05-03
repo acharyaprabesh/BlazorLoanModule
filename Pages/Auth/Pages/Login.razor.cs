@@ -11,12 +11,14 @@ namespace BlazorLoanModule.Pages.Auth.Pages
         private IAuthManager _authManager { get; set; }
         protected override async Task OnInitializedAsync()
         {
-            LoginModel.UserName = "admin";
+            
         }
 
         private async Task LoginClick()
         {
            var response=  await _authManager.LoginAsync(LoginModel);
+            await _customAuthStateProvider.UpadteAuthenticationState(response.Message);
+            _navigationManager.NavigateTo("/");
         }
     }
 }

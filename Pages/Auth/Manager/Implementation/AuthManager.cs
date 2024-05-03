@@ -18,6 +18,7 @@ namespace BlazorLoanModule.Pages.Auth.Manager.Implementation
         }
         public async Task<LoginTokenModel> LoginAsync(LoginModel loginModel)
         {
+
             //_httpClient.DefaultRequestHeaders.Authorization =new AuthenticationHeaderValue("Bearer", "");
             var respose = await _httpClient.PostAsJsonAsync(AuthEndPoint.Login, loginModel);
             var responseString=await respose.Content.ReadAsStringAsync();   
