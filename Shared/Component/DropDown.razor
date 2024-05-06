@@ -1,0 +1,11 @@
+﻿@rendermode InteractiveServer
+<InputSelect @bind-Value="BindValue" class="form-control">
+    @foreach (var item in DropDownModels)
+    {
+        <option value="@item.Id">@item.Value</option>
+    }
+</InputSelect>
+
+
+
+

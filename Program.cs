@@ -2,6 +2,8 @@ using BlazorLoanModule.Components;
 using BlazorLoanModule.Configuration;
 using BlazorLoanModule.Pages.Auth.Manager.Implementation;
 using BlazorLoanModule.Pages.Auth.Manager.Interface;
+using BlazorLoanModule.Shared.Manger.Implementatioin;
+using BlazorLoanModule.Shared.Manger.Interface;
 using BlazorLoanModule.Utility.CacheManager;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -16,6 +18,8 @@ builder.Services.AddRazorComponents()
 builder.Services.AddStackExchangeRedisCache(r => { r.Configuration = builder.Configuration["redis:connectionString"]; });
 builder.Services.AddScoped<ICacheService, CacheService>();
 builder.Services.AddTransient<IAuthManager, AuthManager>();
+builder.Services.AddTransient<IBranchManager, BranchManager>();
+builder.Services.AddTransient<IUtilityManager, UtilityManager>();
 builder.Services.AddTransient<ProtectedSessionStorage>();
 builder.Services.AddScoped<CustomAuthenticationStateProvider>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();

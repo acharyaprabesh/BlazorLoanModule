@@ -1,0 +1,17 @@
+﻿@page "/Branch"
+@using BlazorLoanModule.Pages.Auth.Manager.Interface
+@rendermode InteractiveServer
+<h3>Branch</h3>
+<DropDown DropDownName="Branch" All="1" Value="@BranchId" ValueChanged="@((value)=>BranchId=value)"  ></DropDown>
+
+Dropdown Value is @BranchId
+@code {
+    [Inject] public IBranchManager _branchManager { get; set; }
+    public string BranchId { get; set; }=string.Empty;
+    protected override async Task OnInitializedAsync()
+    {
+        var BranchList= await _branchManager.GetBranchesAsync();
+        BranchId = "11";
+    }
+    }
+}
